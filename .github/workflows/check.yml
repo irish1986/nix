@@ -1,0 +1,24 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: DeterminateSystems/determinate-nix-action@v3
+      - name: Formatting
+        run: nix fmt -- --ci
+      - name: Lint
+        run: nix develop --command sh -c 'statix check . && deadnix --fail .'
+      - name: Build the system
+        # Builds checks.x86_64-linux.bigbug-nixos, the whole system closure.
+        run: nix flake check -L
