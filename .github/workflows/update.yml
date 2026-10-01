@@ -1,0 +1,27 @@
+name: update-flake-lock
+
+on:
+  schedule:
+    - cron: "0 6 * * 6" # Saturdays 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: DeterminateSystems/determinate-nix-action@v3
+      - uses: DeterminateSystems/update-flake-lock@v29
+        with:
+          pr-title: "flake.lock: update inputs"
+          pr-labels: |
+            dependencies
+            automated
+          # PRs opened with the default token do not trigger the check
+          # workflow. Add a fine-grained PAT as FLAKE_UPDATE_TOKEN (see README).
+          token: ${{ secrets.FLAKE_UPDATE_TOKEN || github.token }}
