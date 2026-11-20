@@ -22,7 +22,7 @@ Label: wayfinder:map
 - **Standing rules:**
   - Never name the user's employer or its industry; say "work".
   - Git flow is branch, then fast-forward merge into `main`, then delete the branch.
-  - Research branches stay local.
+  - Research findings end up in `specs/projects/research-*.md`; research branches are throwaway and are deleted once the file is kept.
 - **Facts at charting (2026-11-19):**
   - WSL 3.0.5 on Windows computer `XSBUG-1`.
   - Existing distros: `Ubuntu-26.04`, `kali-linux` (the default) and `docker-desktop-data`.
