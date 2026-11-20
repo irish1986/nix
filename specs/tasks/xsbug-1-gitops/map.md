@@ -2,7 +2,7 @@
 
 Label: wayfinder:map
 
-**Next step:** start with [Decide the minimal Person setup](issues/01-minimal-person-setup.md), because the flake skeleton waits on it. [Install stock NixOS-WSL beside Ubuntu](issues/02-install-stock-nixos-wsl.md) and [Publish the repo to GitHub](issues/03-publish-repo-to-github.md) can be done in any order. [Can comin deploy to the system profile on WSL?](issues/04-comin-system-profile-research.md) is being researched by an agent.
+**Next step:** [Write the flake skeleton for xsbug-1](issues/05-write-flake-skeleton.md) is now unblocked. [Install stock NixOS-WSL beside Ubuntu](issues/02-install-stock-nixos-wsl.md) and [Publish the repo to GitHub](issues/03-publish-repo-to-github.md) can be done in any order. [Can comin deploy to the system profile on WSL?](issues/04-comin-system-profile-research.md) is being researched by an agent.
 
 ## Destination
 
@@ -32,6 +32,8 @@ Label: wayfinder:map
 ## Decisions so far
 
 <!-- one line per resolved ticket: [title](issues/NN-slug.md): gist -->
+
+- [Decide the minimal Person setup](issues/01-minimal-person-setup.md): zsh with oh-my-zsh and p10k, vim as `$EDITOR`, and VS Code Remote via a `vscode-remote` Feature in the `wsl` Role. git identity is in the Person, using the GitHub noreply email.
 
 ## Not yet specified
 

@@ -45,7 +45,7 @@ _Avoid_: use case, flavour
 ### People
 
 **Person**:
-A human whose personal setup (shell, git, editor) is declared once and can appear on several Hosts.
+A human whose identity (name, email) and personal setup (shell, git, editor) are declared once and can appear on several Hosts. An Account may override parts of the identity, such as a work email.
 _Avoid_: user (ambiguous between Person and Account)
 
 **Account**:

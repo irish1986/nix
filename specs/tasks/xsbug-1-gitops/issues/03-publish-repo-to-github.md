@@ -11,6 +11,7 @@ Create the public repository `irish1986/nixos` and push `main` from the Ubuntu w
 The agent writes `docs/how-to/publish-repo.md`. It covers:
 
 - a pre-push check: every commit and file is free of employer references and secrets (`git grep` across all refs);
+- rewriting the author of every commit made before the switch to the GitHub noreply email (`13018674+irish1986@users.noreply.github.com`), as decided in "Decide the minimal Person setup";
 - creating the repo;
 - adding the remote;
 - pushing `main`;
