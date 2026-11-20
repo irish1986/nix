@@ -1,6 +1,6 @@
 # 0004. Public repository, with Home Hosts and Work Hosts kept apart
 
-- Status: Proposed
+- Status: Accepted
 - Date: 2026-11-19
 
 ## Context

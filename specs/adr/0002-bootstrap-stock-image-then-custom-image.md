@@ -1,6 +1,6 @@
 # 0002. Bootstrap from the stock image first, then from a custom image built from the flake
 
-- Status: Proposed
+- Status: Accepted
 - Date: 2026-11-19
 
 ## Context

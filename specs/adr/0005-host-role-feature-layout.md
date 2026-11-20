@@ -1,6 +1,6 @@
 # 0005. Layered Host, Role and Feature layout in a plain flake
 
-- Status: Proposed
+- Status: Accepted
 - Date: 2026-11-19
 
 ## Context

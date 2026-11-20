@@ -1,6 +1,6 @@
 # 0001. Use NixOS-WSL as the base; do not use nixos-anywhere
 
-- Status: Proposed
+- Status: Accepted
 - Date: 2026-11-19
 
 ## Context

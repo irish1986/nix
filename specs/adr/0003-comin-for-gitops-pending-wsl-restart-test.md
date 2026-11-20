@@ -42,8 +42,8 @@ Use comin, pinned to `v0.14.0` (module `comin.nixosModules.comin`, `inputs.nixpk
 **Settings, whatever the outcome:**
 
 - `exporter.listen_address = "127.0.0.1"`. The default binds all interfaces, and the NixOS firewall is off under WSL.
-- Commit signature verification on (`sshAllowedSignersPath` or `gpgPublicKeyPaths`), knowing it checks only the tip commit.
-- A read-only repository credential: a fine-grained read-only token or a read-only deploy key.
+- Commit signature verification (`sshAllowedSignersPath` or `gpgPublicKeyPaths`), knowing it checks only the tip commit. Deferred until right after the first Host syncs from git; see [intent](../intents/comin-commit-signing.md).
+- A credential only for a private remote: a fine-grained read-only token or a read-only deploy key. The public repository (ADR 0004) needs none.
 - Do not combine comin with `system.autoUpgrade`.
 - Never ship `wsl.defaultUser` changes through comin. They need `boot` plus a restart, done by hand.
 
