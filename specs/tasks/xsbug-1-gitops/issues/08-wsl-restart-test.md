@@ -6,7 +6,7 @@ Blocked by: 04, 07
 
 ## Question
 
-Does the comin-deployed state survive `wsl --shutdown` and a restart on `xsbug-1`? Follow the checklist in §4 of the findings from "Can comin deploy to the system profile on WSL?". Run A is without mitigation (expected to revert). Run B adds the corrected hook a′ from §2.6, as a `comin-wsl` Feature.
+Does the comin-deployed state survive `wsl --shutdown` and a restart on `xsbug-1`? Follow the checklist in §4 of [the findings](../../../projects/research-comin-system-profile-wsl.md) from "Can comin deploy to the system profile on WSL?". Run A is without mitigation (expected to revert). Run B adds the corrected hook a′ from §2.6, as a `comin-wsl` Feature.
 
 1. Push a commit and let comin deploy it.
 2. Run `wsl --shutdown`, then start the distro again.

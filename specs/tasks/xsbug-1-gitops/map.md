@@ -36,7 +36,7 @@ Label: wayfinder:map
 - [Decide the minimal Person setup](issues/01-minimal-person-setup.md): zsh with oh-my-zsh and p10k, vim as `$EDITOR`, and VS Code Remote via a `vscode-remote` Feature in the `wsl` Role. git identity is in the Person, using the GitHub noreply email.
 - [Publish the repo to GitHub](issues/03-publish-repo-to-github.md): published as public `irish1986/nix` (remote `origin`). The three earliest commits keep the Gmail author by choice; later ones use noreply.
 - [Write the flake skeleton for xsbug-1](issues/05-write-flake-skeleton.md): the ADR 0005 layout for xsbug-1 is written (flake, mkHost, Base, wsl and home Roles, the `my.accounts` mechanism, a vscode-remote Feature, Person simon). Not yet built, and there is no `flake.lock` yet.
-- [Can comin deploy to the system profile on WSL?](issues/04-comin-system-profile-research.md): no; comin hard-codes its own profile and NixOS-WSL always starts `profiles/system`. The ADR 0003 hook has a bug (forced `boot`); corrected hook a′ and fallback a″ are on the local `research/comin-system-profile` branch, along with a two-run restart checklist.
+- [Can comin deploy to the system profile on WSL?](issues/04-comin-system-profile-research.md): no; comin hard-codes its own profile and NixOS-WSL always starts `profiles/system`. The ADR 0003 hook has a bug (forced `boot`); corrected hook a′ and fallback a″ are in [the findings](../../projects/research-comin-system-profile-wsl.md), along with a two-run restart checklist.
 
 ## Not yet specified
 

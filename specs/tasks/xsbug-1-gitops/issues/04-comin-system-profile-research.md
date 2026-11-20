@@ -17,11 +17,7 @@ Before running the restart test, establish from primary sources how comin's depl
 
 Resolved 2026-11-19 by a research agent.
 
-**Findings:** `specs/projects/research-comin-system-profile-wsl.md` on the local branch `research/comin-system-profile` (commit `ba778b9`, never merged or pushed). Read it with:
-
-```sh
-git show research/comin-system-profile:specs/projects/research-comin-system-profile-wsl.md
-```
+**Findings:** [research-comin-system-profile-wsl.md](../../../projects/research-comin-system-profile-wsl.md), kept next to the first research note. It was first written on a throwaway research branch (commit `ba778b9`), which has since been deleted.
 
 - **comin won't write the `system` profile on Linux.** `system-profiles/comin` is hard-coded on `v0.14.0` and `main`. The maintainer's position (#144, #86, #109) is that tools reading only `system` should be fixed. PR #232 writes `system` for nix-darwin only (opened 2026-11-18, unreviewed). PR #197 plans to suspend comin when the running system differs from its last deployment.
 - **The ADR 0003 hook has a bug.**
