@@ -21,7 +21,7 @@ Label: wayfinder:map
 - **Skills:** grilling tickets call `grilling` and `domain-modeling`; research tickets call `research`. Use terms from [GLOSSARY](../../GLOSSARY.md).
 - **Standing rules:**
   - Never name the user's employer or its industry; say "work".
-  - Git flow is branch, then fast-forward merge into `main`, then delete the branch.
+  - Git flow is branch, then fast-forward merge into `main`; the merged branch is deleted automatically.
   - Research findings end up in `specs/projects/research-*.md`; research branches are throwaway and are deleted once the file is kept.
 - **Facts at charting (2026-11-19):**
   - WSL 3.0.5 on Windows computer `XSBUG-1`.
