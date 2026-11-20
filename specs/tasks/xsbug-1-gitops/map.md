@@ -2,7 +2,7 @@
 
 Label: wayfinder:map
 
-**Next step:** [First flake rebuild on xsbug-1](issues/06-first-flake-rebuild.md) is now unblocked: turn the stock distro into `xsbug-1` from the flake.
+**Next step:** continue [First flake rebuild on xsbug-1](issues/06-first-flake-rebuild.md) at Part 1 of `docs/how-to/first-flake-rebuild.md`. As of 2026-11-19 no `flake.lock` exists: there is no `~/nix` clone in NixOS and nothing in `C:\Users\irish\Downloads`. Run Part 1 inside `wsl -d NixOS`, then hand the lock file to the agent to check and commit.
 
 ## Destination
 
