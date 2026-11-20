@@ -1,7 +1,7 @@
 # First flake rebuild on xsbug-1
 
 Type: task (HITL)
-Status: open
+Status: claimed
 Blocked by: 02, 03, 05
 
 ## Question
