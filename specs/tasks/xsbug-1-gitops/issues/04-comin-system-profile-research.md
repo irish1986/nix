@@ -1,7 +1,7 @@
 # Can comin deploy to the system profile on WSL?
 
 Type: research
-Status: claimed
+Status: resolved
 Blocked by: none
 
 ## Question
@@ -12,3 +12,25 @@ Before running the restart test, establish from primary sources how comin's depl
 - Is mitigation (a) safe: a `postDeploymentCommand` that runs `nix-env -p /nix/var/nix/profiles/system --set "$(readlink -f /run/current-system)"`? Consider generation numbering, garbage collection, `nixos-rebuild --rollback` and the testing branch.
 - Does NixOS-WSL offer any hook to activate a different profile at start?
 - Which concrete checks should the restart test run, and what results should it expect?
+
+## Answer
+
+Resolved 2026-11-19 by a research agent.
+
+**Findings:** `specs/projects/research-comin-system-profile-wsl.md` on the local branch `research/comin-system-profile` (commit `ba778b9`, never merged or pushed). Read it with:
+
+```sh
+git show research/comin-system-profile:specs/projects/research-comin-system-profile-wsl.md
+```
+
+- **comin won't write the `system` profile on Linux.** `system-profiles/comin` is hard-coded on `v0.14.0` and `main`. The maintainer's position (#144, #86, #109) is that tools reading only `system` should be fixed. PR #232 writes `system` for nix-darwin only (opened 2026-11-18, unreviewed). PR #197 plans to suspend comin when the running system differs from its last deployment.
+- **The ADR 0003 hook has a bug.**
+  - It reads `/run/current-system`, which still holds the *old* system when comin turns a `switch` into a `boot` because switch inhibitors changed. In that case the new generation never takes effect on WSL.
+  - Its output is also logged only at debug level.
+  - **Corrected hook "a′"** (findings §2.6): it reads `system-profiles/comin`, takes the main-branch names from the comin config, refuses the `test` operation on main, does nothing when `system` already points at the target, and logs through `logger`. With `nix.gc --delete-older-than` it is safe for generation numbering, `list-generations`, `--rollback` and GC. There's no race with comin's own profile write.
+- **NixOS-WSL always starts `profiles/system`.** No option, hook or open issue changes that.
+- **Fallback "a″"** (findings §2.7): `mkForce` NixOS-WSL's no-op `installBootLoader` so it sets the `system` profile, as the nixpkgs LXC module does. The downside is that a failed switch persists, as with `nixos-rebuild`.
+- **Restart-test checklist** (findings §4), used by "Run the WSL restart test":
+  - **Run A, no mitigation:** expected to revert to the last manual generation. Recover with `comin deployment submit-latest`.
+  - **Run B, with a′:** covers the testing branch, a failed deployment, a forced `boot`, GC and rollback.
+  - **Trap:** don't push a pure revert after a failed deployment (comin #192).

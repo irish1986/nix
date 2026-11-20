@@ -26,7 +26,7 @@ Evidence: [research note §4 and §6](../projects/research-nixos-wsl-comin-boots
 
 ## Decision
 
-Use comin, pinned to `v0.14.0` (module `comin.nixosModules.comin`, `inputs.nixpkgs.follows = "nixpkgs"`), as the GitOps agent **if the restart test passes, or passes with mitigation (a)**.
+Use comin, pinned to `v0.14.0` (module `comin.nixosModules.comin`, `inputs.nixpkgs.follows = "nixpkgs"`), as the GitOps agent **if the restart test passes, or passes with a mitigation**.
 
 **Restart test** (manual, on the first machine):
 
@@ -37,7 +37,7 @@ Use comin, pinned to `v0.14.0` (module `comin.nixosModules.comin`, `inputs.nixpk
 **Outcomes:**
 
 - **Pass:** the system stays on the comin generation. Accept this ADR as written.
-- **Fail:** retest with mitigation (a), a `postDeploymentCommand` that, on `COMIN_STATUS=done` for `main`, points the `system` profile at `/run/current-system`. If that passes, accept this ADR with the mitigation. If it doesn't, supersede this ADR with one that drops comin and uses `nixos-rebuild` by hand until upstream comin can target the `system` profile (option (b) in the research note).
+- **Fail:** retest with mitigation a′, a corrected `postDeploymentCommand` that, after a successful `main` deployment, points the `system` profile at the generation in `system-profiles/comin` (not `/run/current-system`, which is stale when comin turns a `switch` into a `boot`). If that fails, try a″, which overrides NixOS-WSL's no-op `installBootLoader` to set the `system` profile. If both fail, supersede this ADR with another way to sync from git, since syncing from git is required. Details: [comin system profile research](../tasks/xsbug-1-gitops/issues/04-comin-system-profile-research.md).
 
 **Settings, whatever the outcome:**
 
