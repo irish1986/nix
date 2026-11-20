@@ -2,7 +2,7 @@
 
 Label: wayfinder:map
 
-**Next step:** [Write the flake skeleton for xsbug-1](issues/05-write-flake-skeleton.md) is now unblocked. [Install stock NixOS-WSL beside Ubuntu](issues/02-install-stock-nixos-wsl.md) and [Publish the repo to GitHub](issues/03-publish-repo-to-github.md) can be done in any order. [Can comin deploy to the system profile on WSL?](issues/04-comin-system-profile-research.md) is being researched by an agent.
+**Next step:** [Write the flake skeleton for xsbug-1](issues/05-write-flake-skeleton.md) is unblocked, and so is [Install stock NixOS-WSL beside Ubuntu](issues/02-install-stock-nixos-wsl.md). [Can comin deploy to the system profile on WSL?](issues/04-comin-system-profile-research.md) is being researched by an agent.
 
 ## Destination
 
@@ -13,7 +13,7 @@ Label: wayfinder:map
 - **Why this map exists:** this is the 3rd or 4th attempt. Earlier ones stalled because they designed without running anything, the scope kept growing, the thread was lost between sessions, and the agent built things the user never learned to run.
 - **Execution is part of this map.** It doesn't stop at a plan: the hands-on tickets are on the route.
   - The **agent writes** code and how-to guides, with explanations, for the user to review.
-  - The **user runs** every install, rebuild, comin step, test and `git push`. The agent never runs these and never pushes.
+  - The **user runs** every install, rebuild, comin step and test. The agent never runs these, and pushes only when the user explicitly asks.
 - **Session size:** about 1 hour per ticket, ending in a committed state. End every session by updating **Next step** above and committing.
 - **Guides:** every hands-on ticket produces or updates a how-to in `docs/`. The user follows it step by step and fixes what's wrong, so each guide is proven.
 - **Scope guard:** new ideas go to `specs/intents/`, not onto this map, unless they block the destination.
@@ -26,7 +26,7 @@ Label: wayfinder:map
 - **Facts at charting (2026-11-19):**
   - WSL 3.0.5 on Windows computer `XSBUG-1`.
   - Existing distros: `Ubuntu-26.04`, `kali-linux` (the default) and `docker-desktop-data`.
-  - The GitHub repo `irish1986/nixos` does not exist yet.
+  - The repo is published as `irish1986/nix` (public), remote `origin`.
 - **Tracker:** local markdown. Tickets live in `issues/NN-<slug>.md`, each with `Type:`, `Status:` (open, claimed or resolved) and `Blocked by:` lines.
 
 ## Decisions so far
@@ -34,6 +34,7 @@ Label: wayfinder:map
 <!-- one line per resolved ticket: [title](issues/NN-slug.md): gist -->
 
 - [Decide the minimal Person setup](issues/01-minimal-person-setup.md): zsh with oh-my-zsh and p10k, vim as `$EDITOR`, and VS Code Remote via a `vscode-remote` Feature in the `wsl` Role. git identity is in the Person, using the GitHub noreply email.
+- [Publish the repo to GitHub](issues/03-publish-repo-to-github.md): published as public `irish1986/nix` (remote `origin`). The three earliest commits keep the Gmail author by choice; later ones use noreply.
 
 ## Not yet specified
 
