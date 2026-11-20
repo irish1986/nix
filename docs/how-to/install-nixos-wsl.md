@@ -93,8 +93,17 @@ wsl -d NixOS -- nixos-version   # starts it again and runs one command
 
 This is how you get into NixOS when a bad configuration stops it from starting. Practise it now, while nothing is broken.
 
+> **Known bug in release 2605.7.2** ([NixOS-WSL#1042](https://github.com/nix-community/NixOS-WSL/issues/1042), open on 2026-11-19). The documented command alone fails with:
+>
+> ```
+> …/nixos-enter: cannot execute: required file not found
+> ```
+>
+> `nixos-enter` starts with `#! /nix/store/…-bash-…/bin/bash`. In the WSL system distro, which the recovery runs in, the NixOS store is only at `/mnt/wslg/distro/nix`, and `/nix` doesn't exist. The second command below works around it by making the store visible at `/nix` first. Drop that line once #1042 is fixed.
+
 ```powershell
 wsl --terminate NixOS
+wsl -d NixOS --system --user root -- sh -c "mkdir -p /nix && mount --bind /mnt/wslg/distro/nix /nix"
 wsl -d NixOS --system --user root -- /mnt/wslg/distro/bin/nixos-wsl-recovery
 ```
 
@@ -105,9 +114,10 @@ ls -l /nix/var/nix/profiles/
 exit
 ```
 
-To boot an **older generation** after a bad rebuild, pass its profile link. The path is relative to the NixOS root, and you only need this once you have more than one generation:
+To boot an **older generation** after a bad rebuild, pass its profile link. The path is relative to the NixOS root, and you only need this once you have more than one generation. Run the same `/nix` workaround line first:
 
 ```powershell
+wsl -d NixOS --system --user root -- sh -c "mkdir -p /nix && mount --bind /mnt/wslg/distro/nix /nix"
 wsl -d NixOS --system --user root -- /mnt/wslg/distro/bin/nixos-wsl-recovery --system /nix/var/nix/profiles/system-1-link
 ```
 
