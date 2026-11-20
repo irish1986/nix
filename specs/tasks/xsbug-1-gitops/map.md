@@ -2,7 +2,7 @@
 
 Label: wayfinder:map
 
-**Next step:** pick one of the four open frontier tickets. [Decide the minimal Person setup](issues/01-minimal-person-setup.md) is the best start, because the flake skeleton waits on it.
+**Next step:** start with [Decide the minimal Person setup](issues/01-minimal-person-setup.md), because the flake skeleton waits on it. [Install stock NixOS-WSL beside Ubuntu](issues/02-install-stock-nixos-wsl.md) and [Publish the repo to GitHub](issues/03-publish-repo-to-github.md) can be done in any order. [Can comin deploy to the system profile on WSL?](issues/04-comin-system-profile-research.md) is being researched by an agent.
 
 ## Destination
 

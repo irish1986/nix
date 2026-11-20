@@ -1,7 +1,7 @@
 # Can comin deploy to the system profile on WSL?
 
 Type: research
-Status: open
+Status: claimed
 Blocked by: none
 
 ## Question
