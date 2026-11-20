@@ -1,0 +1,18 @@
+# Reference copy of %UserProfile%\.wslconfig on XSBUG-1 (ADR 0005).
+# Nothing applies this file. The live file is currently written by the
+# separate dotfiles playbook; copy changes by hand and run `wsl --shutdown`.
+# It applies to every distro on this computer, not just this Host.
+
+[wsl2]
+memory=48GB
+processors=6
+swap=8GB
+networkingMode=mirrored
+dnsTunneling=true
+firewall=true
+guiApplications=true
+nestedVirtualization=true
+
+[experimental]
+autoMemoryReclaim=gradual
+sparseVhd=true

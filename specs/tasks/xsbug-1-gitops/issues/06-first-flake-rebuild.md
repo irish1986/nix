@@ -14,6 +14,8 @@ Turn the stock distro into `xsbug-1` from the pushed flake. The agent writes `do
 4. Log in as `irish`.
 5. Verify the hostname, home-manager files and `nixos-rebuild list-generations`.
 
+Before relying on the rebuild, produce `flake.lock` (e.g. `nix flake lock` in a clone of the repo on xsbug-1) and commit it, so every later build uses pinned inputs. Until then, a build from `github:` resolves inputs to whatever is newest at that moment.
+
 Then make one small change on the workbench, push it, and apply it with `nixos-rebuild switch --flake github:…` to feel the manual loop before automating it. Fix the build errors the skeleton will probably hit.
 
 **Done when:** `xsbug-1` boots from the flake as `irish` with the minimal Person setup, and the manual loop worked once.

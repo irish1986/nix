@@ -2,7 +2,7 @@
 
 Label: wayfinder:map
 
-**Next step:** [Write the flake skeleton for xsbug-1](issues/05-write-flake-skeleton.md) is unblocked, and so is [Install stock NixOS-WSL beside Ubuntu](issues/02-install-stock-nixos-wsl.md). [Can comin deploy to the system profile on WSL?](issues/04-comin-system-profile-research.md) is being researched by an agent.
+**Next step:** [Install stock NixOS-WSL beside Ubuntu](issues/02-install-stock-nixos-wsl.md); after it comes [First flake rebuild on xsbug-1](issues/06-first-flake-rebuild.md). [Can comin deploy to the system profile on WSL?](issues/04-comin-system-profile-research.md) is being researched by an agent.
 
 ## Destination
 
@@ -35,6 +35,7 @@ Label: wayfinder:map
 
 - [Decide the minimal Person setup](issues/01-minimal-person-setup.md): zsh with oh-my-zsh and p10k, vim as `$EDITOR`, and VS Code Remote via a `vscode-remote` Feature in the `wsl` Role. git identity is in the Person, using the GitHub noreply email.
 - [Publish the repo to GitHub](issues/03-publish-repo-to-github.md): published as public `irish1986/nix` (remote `origin`). The three earliest commits keep the Gmail author by choice; later ones use noreply.
+- [Write the flake skeleton for xsbug-1](issues/05-write-flake-skeleton.md): the ADR 0005 layout for xsbug-1 is written (flake, mkHost, Base, wsl and home Roles, the `my.accounts` mechanism, a vscode-remote Feature, Person simon). Not yet built, and there is no `flake.lock` yet.
 
 ## Not yet specified
 
