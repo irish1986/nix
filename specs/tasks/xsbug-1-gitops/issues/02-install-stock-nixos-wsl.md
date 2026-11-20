@@ -1,7 +1,7 @@
 # Install stock NixOS-WSL beside Ubuntu
 
 Type: task (HITL)
-Status: open
+Status: claimed
 Blocked by: none
 
 ## Question
